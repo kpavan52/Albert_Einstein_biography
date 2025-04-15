@@ -1,78 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Mivi Blog</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('https://i.pinimg.com/736x/52/7f/7e/527f7e2d946015dc3b32f79d14319323.jpg');
+            background-size: cover;
+            background-position: center;
+        }
 
-    body {
-      height: 100vh;
-      background: linear-gradient(135deg, #43e97b, #38f9d7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: url("https://media.istockphoto.com/id/809971888/photo/night-sky-landscape.jpg?s=612x612&w=0&k=20&c=ku3RWu4DQ8ErN-KbT1Act72LMocTwSAAm3UDkLiako0=");
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
+        .login-container {
+            background-color: rgba(228, 230, 221, 0.467); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
 
-    .login-box {
-      background:rgba(255,255,255,0.5);
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      width: 320px;
-      text-align: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-    }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
 
-    .login-box h2 {
-      margin-bottom: 25px;
-      color: #333;
-    }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
 
-    .login-box input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      font-size: 14px;
-    }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(228, 230, 221, 0.467);
+            border-radius: 5px;
+        }
 
-    .login-box button {
-      width: 100%;
-      padding: 12px;
-      background-color: #4a90e2;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      margin-top: 10px;
-    }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
-    .login-box button:hover {
-      background-color: #357ab8;
-    }
-  </style>
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .remember-me input {
+            width: auto;
+            margin-right: 10px;
+            margin-bottom: 0;
+        }
+
+        .register-link {
+            margin-top: 15px;
+            display: block;
+        }
+    </style>
 </head>
 <body>
-  <div class="login-box">
-    <h2>Login</h2>
-    <form action="https">
-      <input type="text" placeholder="Username" required>
-      <input type="password" placeholder="Password" required>
-      <button type="submit">Login</button>
-    </form>
-  </div>
-  <script>
+    <div class="login-container">
+        <h2>Login Form</h2>
+        <form onsubmit="handleLogin(event)">
+            <label for="email">Enter your email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Enter your password</label>
+            <input type="password" id="password" name="password" required>
+
+            <div class="remember-me">
+                <input type="checkbox" id="remember" name="remember">
+                <label for="remember" style="display: inline; text-align: left;">Remember me</label>
+            </div>
+
+            <button type="submit">Login</button>
+
+            <a href="register.html" class="register-link">Don't have an account? Register</a>
+        </form>
+    </div>
+
+    <script>
         function handleLogin(event) {
             event.preventDefault();
             alert("Login submitted successfully!");
